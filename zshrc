@@ -499,3 +499,4 @@ fi
 #ZLE_RPROMPT_INDENT=0
 
 # vim: ft=zsh
+neofetch
