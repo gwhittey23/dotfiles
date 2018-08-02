@@ -22,7 +22,7 @@ zsh_wifi_signal(){
 # =============================================================================
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-
+export TERM="xterm-256color"
 DEFAULT_FOREGROUND=006 DEFAULT_BACKGROUND=235
 DEFAULT_COLOR=$DEFAULT_FOREGROUND
 
@@ -71,7 +71,7 @@ POWERLEVEL9K_HOME_ICON=$'\uF015 '  # <- Whitespace added
 POWERLEVEL9K_LOCK_ICON=$'\UF023 '
 POWERLEVEL9K_FOLDER_ICON=$'\uF115 '
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir_writable dir )
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator virtualenv context dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs status time ssh)
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
@@ -276,7 +276,9 @@ setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
 setopt pushd_minus              # Reference stack entries with "-".
 
 setopt extended_glob
-
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/bin/virtualenvwrapper.sh
 # =============================================================================
 #                                   Aliases
 # =============================================================================
