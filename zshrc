@@ -20,6 +20,7 @@ zsh_wifi_signal(){
 # =============================================================================
 #                                   Variables
 # =============================================================================
+export PATH=/usr/local/bin:$PATH
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
@@ -276,9 +277,7 @@ setopt pushd_ignore_dups        # Dont push copies of the same dir on stack.
 setopt pushd_minus              # Reference stack entries with "-".
 
 setopt extended_glob
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/bin/virtualenvwrapper.sh
+
 # =============================================================================
 #                                   Aliases
 # =============================================================================
@@ -324,12 +323,7 @@ alias 8='pu -8'
 alias 9='pu -9'
 alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
 alias po='() { popd &> /dev/null; dirs -v; }'
-#list
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -la'
-alias l='ls' 					
-alias l.="ls -A | egrep '^\.'"      
+   
 
 #fix obvious typo's
 alias cd..='cd ..'
@@ -500,3 +494,18 @@ fi
 
 # vim: ft=zsh
 neofetch
+
+# virtualenv
+
+
+if [[ $OSTYPE = (darwin|freebsd)* ]]; then
+	VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+	export WORKON_HOME=~/virtualenvs
+	source /usr/local/bin/virtualenvwrapper.sh
+else
+	export WORKON_HOME=$HOME/.virtualenvs
+	export PROJECT_HOME=$HOME/Devel
+	source /usr/bin/virtualenvwrapper.sh
+
+	
+fi
