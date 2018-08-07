@@ -221,11 +221,12 @@ zplug "plugins/golang", from:oh-my-zsh, if:"which go"
 zplug "plugins/nmap",   from:oh-my-zsh, if:"which nmap"
 zplug "plugins/sudo",   from:oh-my-zsh, if:"which sudo"
 zplug "plugins/tmux",   from:oh-my-zsh, if:"which tmux"
-
+zplug "plugins/docker", from:oh-my-zsh, if:"which docker"
 # Supports oh-my-zsh plugins and the like
 if [[ $OSTYPE = (linux)* ]]; then
 	zplug "plugins/archlinux", from:oh-my-zsh, if:"which pacman"
 	zplug "plugins/dnf",       from:oh-my-zsh, if:"which dnf"
+
 fi
 
 if [[ $OSTYPE = (darwin)* ]]; then
@@ -381,7 +382,7 @@ alias fc='sudo fc-cache -fv'
 #get fastest mirrors in your neighborhood 
 alias mirror="sudo reflector --protocol https --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias mirrors=mirror
-alias code="code-insiders"
+#alias code="code-insiders"
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # =============================================================================
