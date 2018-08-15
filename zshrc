@@ -504,6 +504,7 @@ if [[ $OSTYPE = (darwin|freebsd)* ]]; then
 	export WORKON_HOME=~/virtualenvs
 	source /usr/local/bin/virtualenvwrapper.sh
 else
+	VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 	export WORKON_HOME=$HOME/.virtualenvs
 	export PROJECT_HOME=$HOME/Devel
 	source /usr/bin/virtualenvwrapper.sh
