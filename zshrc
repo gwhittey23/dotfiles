@@ -382,7 +382,7 @@ alias fc='sudo fc-cache -fv'
 #get fastest mirrors in your neighborhood 
 alias mirror="sudo reflector --protocol https --latest 50 --number 20 --sort rate --save /etc/pacman.d/mirrorlist"
 alias mirrors=mirror
-#alias code="code-insiders"
+#alias code="code -n"
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # =============================================================================
